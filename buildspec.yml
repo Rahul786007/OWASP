@@ -14,4 +14,5 @@ phases:
       - mvn clean install
 
 artifacts:
-  - target/dependency-check-report.html
+  files:
+    - target/dependency-check-report.html
