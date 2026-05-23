@@ -3,8 +3,8 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo "Checking environment variable"
-      - printenv | grep NVD
+      - echo "===== ENV CHECK ====="
+      - env | grep NVD || echo "NVD variable NOT FOUND"
 
   build:
     commands:
