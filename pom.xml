@@ -55,22 +55,20 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.owasp</groupId>
-                <artifactId>dependency-check-maven</artifactId>
-                <version>9.0.7</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!-- Specify the output directory for reports -->
-                    <outputDirectory>${project.build.directory}/dependency-check-reports</outputDirectory>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <groupId>org.owasp</groupId>
+    <artifactId>dependency-check-maven</artifactId>
+    <version>9.0.7</version>
 
-</project>
+    <configuration>
+        <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
+        <failBuildOnCVSS>7</failBuildOnCVSS>
+    </configuration>
+
+    <executions>
+        <execution>
+            <goals>
+                <goal>check</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
