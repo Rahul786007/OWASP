@@ -3,15 +3,12 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - echo "No Prebuild......"
+      - echo "Testing environment variable"
+      - printenv | grep NVD
 
   build:
     commands:
       - mvn clean install dependency-check:check
-      - mv target/dependency-check-reports reports/
-      - BUILD_NUMBER=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | tr -d '[:alpha:]')
-      - zip -r owasp-report-build-${BUILD_NUMBER}.zip reports/
-      - mvn clean install
 
 artifacts:
   files:
