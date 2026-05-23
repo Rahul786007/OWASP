@@ -14,4 +14,4 @@ phases:
       - mvn clean install
 
 artifacts:
-  files: owasp-report-build-*.zip
+  - target/dependency-check-report.html
